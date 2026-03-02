@@ -56,13 +56,6 @@ export const Education = () => {
                         return (
                             <div key={idx} className="relative flex w-full mb-12">
 
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    viewport={{ once: true, margin: "-100px" }}
-                                    transition={{ duration: 0.5, delay: 0.2 }}
-                                    className="absolute left-1/2 top-1/2 w-4 h-4 bg-white dark:bg-gray-900 border-4 border-royal-purple rounded-full z-20 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(124,58,237,0.8)]"
-                                />
 
                                 {isEven ? (
                                     <>
@@ -123,13 +116,6 @@ export const Education = () => {
                     {educationData.map((edu, idx) => (
                         <div key={idx} className="relative flex w-full">
 
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                className="absolute left-6 top-1/2 w-4 h-4 bg-white dark:bg-gray-900 border-4 border-royal-purple rounded-full z-20 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_10px_rgba(124,58,237,0.8)]"
-                            />
 
                             <motion.div
                                 initial={{ width: 0 }}
