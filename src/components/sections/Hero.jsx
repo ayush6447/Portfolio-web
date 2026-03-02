@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../ui/Button";
+import profilePhoto from "../../assets/profilephoto.jpg";
 
 export const Hero = () => {
     return (
@@ -41,7 +42,7 @@ export const Hero = () => {
                     <div className="absolute inset-0 bg-royal-purple/20 blur-3xl rounded-full scale-150 -z-10"></div>
                     <div className="w-64 h-64 md:w-[400px] md:h-[400px] rounded-full border-4 border-royal-purple/20 p-2 glass-container flex items-center justify-center overflow-hidden shadow-2xl">
                         <img
-                            src="/src/assets/profilephoto.jpg"
+                            src={profilePhoto}
                             alt="Ayush Kumar Singh"
                             className="w-full h-full object-cover rounded-full group-hover:scale-105 transition-transform duration-500"
                         />
