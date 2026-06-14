@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { SectionTitle } from "../ui/SectionTitle";
 import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
+import BorderGlow from "../ui/BorderGlow";
 import { Github, ExternalLink } from "lucide-react";
 
 // Maps tech keywords to gradient color pairs [from, to]
@@ -93,6 +94,15 @@ export const Projects = () => {
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
                         className="flex"
                     >
+                        <BorderGlow
+                            glowColor="124 58 237"
+                            borderRadius={20}
+                            glowRadius={60}
+                            glowIntensity={0.9}
+                            edgeSensitivity={40}
+                            colors={['#c084fc', '#f472b6', '#38bdf8']}
+                            className="w-full h-full"
+                        >
                         <Card className="flex flex-col h-full bg-white/60 dark:bg-gray-900/60 !p-6">
                             {/* Gradient banner */}
                             <ProjectBanner techStack={project.techStack} tag={project.tag} />
@@ -137,6 +147,7 @@ export const Projects = () => {
                                 )}
                             </div>
                         </Card>
+                        </BorderGlow>
                     </motion.div>
                 ))}
             </div>
