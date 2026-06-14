@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { SectionTitle } from "../ui/SectionTitle";
 import { Card } from "../ui/Card";
-import { TechOrbit } from "../ui/TechOrbit";
+import { IconCloud } from "../ui/IconCloud";
 import { Database, Code2, Layout as LayoutIcon, Lightbulb } from "lucide-react";
 
 export const Skills = () => {
@@ -19,7 +19,7 @@ export const Skills = () => {
         {
             title: "Backend",
             icon: <Code2 className="w-6 h-6 text-royal-purple mb-4" />,
-            skills: ["Django", "NodeJS", "MongoDB"]
+            skills: ["Django", "FastAPI", "NodeJS", "MongoDB"]
         },
         {
             title: "Core Skills",
@@ -42,13 +42,18 @@ export const Skills = () => {
         <section id="skills" className="min-h-screen pt-24 pb-12">
             <SectionTitle title="Skills." />
 
-            {/* Orbit wheel + skill cards side-by-side on desktop */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-                {/* Left — Orbit wheel */}
-                <div className="w-full flex justify-center px-4">
-                    <TechOrbit />
-                </div>
+                {/* Left — Interactive icon cloud */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                    className="w-full flex justify-center"
+                >
+                    <IconCloud />
+                </motion.div>
 
                 {/* Right — Skill category cards */}
                 <motion.div
