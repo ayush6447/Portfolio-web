@@ -4,6 +4,61 @@ import { Card } from "../ui/Card";
 import { Button } from "../ui/Button";
 import { Github, ExternalLink } from "lucide-react";
 
+// Maps tech keywords to gradient color pairs [from, to]
+const techGradients = {
+    "Machine Learning":   ["#7c3aed", "#4f46e5"],
+    "Deep Learning":      ["#7c3aed", "#4f46e5"],
+    "TensorFlow":         ["#f59e0b", "#ef4444"],
+    "React.js":           ["#38bdf8", "#6366f1"],
+    "FastAPI":            ["#10b981", "#06b6d4"],
+    "Python":             ["#3b82f6", "#8b5cf6"],
+    "MediaPipe":          ["#06b6d4", "#10b981"],
+    "Blockchain":         ["#f59e0b", "#f97316"],
+    "Ethereum":           ["#8b5cf6", "#6366f1"],
+    "Solidity":           ["#6366f1", "#8b5cf6"],
+    "FAISS":              ["#ec4899", "#8b5cf6"],
+    "Web3.js":            ["#f97316", "#f59e0b"],
+    "default":            ["#7c3aed", "#6366f1"],
+};
+
+const getBannerGradient = (techStack) => {
+    for (const tech of techStack) {
+        const match = Object.keys(techGradients).find(
+            (k) => k !== "default" && tech.toLowerCase().includes(k.toLowerCase())
+        );
+        if (match) return techGradients[match];
+    }
+    return techGradients["default"];
+};
+
+const ProjectBanner = ({ techStack, tag }) => {
+    const [from, to] = getBannerGradient(techStack);
+    return (
+        <div
+            className="w-full h-36 rounded-xl mb-6 relative overflow-hidden flex items-end p-4"
+            style={{ background: `linear-gradient(135deg, ${from}cc, ${to}cc)` }}
+        >
+            {/* Subtle grid texture */}
+            <div
+                className="absolute inset-0 opacity-10"
+                style={{
+                    backgroundImage: "linear-gradient(rgba(255,255,255,.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.15) 1px, transparent 1px)",
+                    backgroundSize: "24px 24px",
+                }}
+            />
+            {/* Floating blobs */}
+            <div className="absolute top-2 right-4 w-20 h-20 rounded-full opacity-20"
+                style={{ background: `radial-gradient(circle, white, transparent)` }} />
+            <div className="absolute bottom-0 left-8 w-14 h-14 rounded-full opacity-15"
+                style={{ background: `radial-gradient(circle, white, transparent)` }} />
+            {/* Tag pill */}
+            <span className="relative z-10 px-3 py-1 bg-white/20 backdrop-blur-sm text-white rounded-full text-xs font-bold tracking-wide border border-white/30">
+                {tag}
+            </span>
+        </div>
+    );
+};
+
 export const Projects = () => {
     const projects = [
         {
@@ -38,10 +93,9 @@ export const Projects = () => {
                         transition={{ duration: 0.6, delay: idx * 0.2 }}
                         className="flex"
                     >
-                        <Card className="flex flex-col h-full bg-white/60 dark:bg-gray-900/60">
-                            <div className="mb-4 inline-block px-3 py-1 bg-royal-purple/10 text-royal-purple rounded-full text-xs font-bold tracking-wide">
-                                {project.tag}
-                            </div>
+                        <Card className="flex flex-col h-full bg-white/60 dark:bg-gray-900/60 !p-6">
+                            {/* Gradient banner */}
+                            <ProjectBanner techStack={project.techStack} tag={project.tag} />
 
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 leading-snug">
                                 {project.title}

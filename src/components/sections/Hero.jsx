@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 import { Button } from "../ui/Button";
 import profilePhoto from "../../assets/profilephoto.jpg";
 
@@ -13,7 +14,6 @@ export const Hero = () => {
                     transition={{ duration: 0.8 }}
                     className="space-y-6"
                 >
-
                     <h1 className="text-5xl md:text-7xl font-bold leading-tight text-gray-900 dark:text-gray-100 tracking-tight">
                         <span className="text-gradient block mb-2">AI/ML</span>
                         & Flutter Developer
@@ -30,6 +30,17 @@ export const Hero = () => {
                         <Button variant="secondary">
                             <a href="#contact">Contact Me</a>
                         </Button>
+                        {/* Resume download button — place your PDF at /public/resume.pdf */}
+                        <motion.a
+                            href="/resume.pdf"
+                            download="Ayush_Kumar_Singh_Resume.pdf"
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium border-2 border-royal-purple text-royal-purple hover:bg-royal-purple hover:text-white transition-all duration-300 shadow-sm hover:shadow-[0_0_16px_rgba(124,58,237,0.35)]"
+                        >
+                            <Download size={17} />
+                            Resume
+                        </motion.a>
                     </div>
                 </motion.div>
 

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { SectionTitle } from "../ui/SectionTitle";
 import { Card } from "../ui/Card";
+import { GitHubContributions } from "../ui/GitHubContributions";
 
 export const About = () => {
     return (
@@ -70,8 +71,18 @@ export const About = () => {
                         </ul>
                     </Card>
                 </motion.div>
-
             </div>
+
+            {/* GitHub Contribution Graph — full width below */}
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-16"
+            >
+                <GitHubContributions username="ayush6447" />
+            </motion.div>
         </section>
     );
 };
